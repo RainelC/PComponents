@@ -1,0 +1,43 @@
+<%- include('layouts/header') %>
+
+<div class="container my-4">
+  <div class="card">
+    <div class="card-body">
+      <h3 class="card-title text-center my-2">Agregar un producto</h3>
+      <form class="row" id="add-form" action="/add" method="post" enctype="multipart/form-data">
+        <div class="mb-3 col-2">
+          <label for="InputCode" class="form-label">Código</label>
+          <input type="text" class="form-control" id="InputCode" />
+        </div>
+        <div class="mb-3 col-6">
+          <label for="InputName" class="form-label">Nombre</label>
+          <input type="text" class="form-control" id="InputName" />
+        </div>
+        <div class="mb-3 col-2">
+          <label for="InputAmount" class="form-label">Cantidad</label>
+          <input type="number" min="0" class="form-control" id="InputAmount" />
+        </div>
+        <div class="mb-3 col-2">
+          <label for="InputPrice" class="form-label">Precio</label>
+          <input type="number" min="0" class="form-control" id="InputPrice" />
+        </div>
+        <div class="mb-3 col-auto">
+          <label for="InputPhoto" class="form-label">Foto del producto</label>
+          <input type="file" class="form-control" id="InputPhoto" />
+        </div>
+        <div class="mb-3 col-12">
+          <label for="InputDescription" class="form-label">Descripción</label>
+          <textarea
+            style="height: 100px"
+            type=""
+            class="form-control"
+            id="InputDescription"
+          ></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<%- include('layouts/footer') %>

@@ -1,11 +1,32 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=\, initial-scale=1.0" />
-    <title><%= title %></title>
-  </head>
-  <body>
-    <h1>HOLA</h1>
-  </body>
-</html>
+<%- include('layouts/header') %>
+
+<div class="container">
+  <table class="table table-striped text-center my-4">
+    <thead>
+      <tr class="table-dark">
+        <th scope="col">Código</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Descripción</th>
+        <th scope="col">Foto</th>
+        <th scope="col">Cantidad</th>
+        <th scope="col">Precio</th>
+        <th scope="col">Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">1</th>
+        <td>Mark</td>
+        <td>Otto</td>
+        <td></td>
+        <td>12</td>
+        <td>50.05</td>
+        <td>
+            <i class='bx bx-edit fs-4'></i>
+            <i class='bx bxs-trash fs-4'></i>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<%- include('layouts/footer') %>

@@ -35,8 +35,8 @@ app.use((req, res, next) => {
 })
 
 /// View Engine 
-app.set('view engine', 'ejs')
-app.use('', router)
+app.set('view engine', 'ejs');
+app.use('', router);
 
 /////////////////
 
