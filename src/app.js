@@ -29,12 +29,10 @@ app.use(
 );
 
 app.use((req, res, next) => {
-  res.locals.massage = req.session.massage;
-  delete req.session.massage;
-  next();
-});
-
-app.use(express.static("upload"));
+    res.locals.message = req.session.message;
+    delete req.session.message;
+    next();
+})
 
 /// View Engine
 app.set("view engine", "ejs");
