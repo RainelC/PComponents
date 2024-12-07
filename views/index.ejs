@@ -14,18 +14,20 @@
       </tr>
     </thead>
     <tbody>
+      <% data.forEach((item, index) => { %>
       <tr>
-        <th scope="row">1</th>
-        <td>Mark</td>
-        <td>Otto</td>
-        <td></td>
-        <td>12</td>
-        <td>50.05</td>
+        <th scope="row"><%= item.product_code%></th>
+        <td><%= item.name%></td>
+        <td><%=item.description%></td>
+        <td><%=item.product_photo%></td>
+        <td><%=item.available%></td>
+        <td><%=item.price%></td>
         <td>
-            <i class='bx bx-edit fs-4'></i>
-            <i class='bx bxs-trash fs-4'></i>
+          <i class="bx bx-edit fs-4"></i>
+          <i class="bx bxs-trash fs-4"></i>
         </td>
       </tr>
+      <% }); %>
     </tbody>
   </table>
 </div>

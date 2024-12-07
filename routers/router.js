@@ -6,7 +6,7 @@ const path = require('path');
 
 const { availableMemory } = require('process');
 const { userInfo } = require('os');
-const { resourceLimits } = require('worker_threads');
+const { error } = require('console');
 
 const folderUpload = path.join(__dirname, '../upload');
 
@@ -23,8 +23,14 @@ var upload = multer({
     storage: storage
 }).single('photo');
 
-router.get('/', (req, res) => {
-    res.render('index', {title: 'PComponents'})
+router.get('/', async (req, res) => {
+    try{
+        const components = await model.find({})
+        res.render('index', {title: 'PComponents', data: components})
+    }
+    catch(error){
+        res.json({message: error.message});
+    }
 });
 
 router.get('/add', (req, res) => {
@@ -44,6 +50,8 @@ router.post('/add', upload, (req, res) => {
     component.save().then(() => {
         console.log("Save Success");
         res.redirect('/');
+    }).catch((error) => {
+        console.log(error);
     });
 });
 
