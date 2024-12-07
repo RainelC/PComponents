@@ -55,6 +55,13 @@ router.post('/add', upload, (req, res) => {
     });
 });
 
+// Edit user
+
+
+
+
+
+
 // Delete
 router.get('/delete/:id', async (req, res) => {
     const id = req.params.id
