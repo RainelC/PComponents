@@ -27,8 +27,8 @@ app.use(session({
 }))
 
 app.use((req, res, next) => {
-    res.locals.massage = req.session.massage;
-    delete req.session.massage;
+    res.locals.message = req.session.message;
+    delete req.session.message;
     next();
 })
 
