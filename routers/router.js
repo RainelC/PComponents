@@ -6,6 +6,7 @@ const path = require('path');
 
 const { availableMemory } = require('process');
 const { userInfo } = require('os');
+const { resourceLimits } = require('worker_threads');
 
 const folderUpload = path.join(__dirname, '../upload');
 
@@ -45,5 +46,36 @@ router.post('/add', upload, (req, res) => {
         res.redirect('/');
     });
 });
+
+// Delete
+router.get('/delete/:id', async (req, res) => {
+    const id = req.params.id
+
+    try {
+        const component = await model.findByIdAndDelete(id);
+
+        if (component != null && component.image != '') {
+            try {
+                fs.unlinkSync('./upload/' + resourceLimits.image)
+            }
+            catch(error) {
+                console.log(error);
+            }
+        }
+
+        req.session.message = {
+            message: 'Artículo eliminado correctamente!',
+            type: 'info'
+        }
+
+        res.redirect('/')
+    }
+    catch(error) {
+        res.json({
+            message: error.message,
+            type: 'danger'
+        })
+    }
+})
 
 module.exports = router;

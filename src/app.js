@@ -5,18 +5,17 @@ const mongoose = require('mongoose');
 const session = require('express-session');
 const router = require('../routers/router');
 
-
 const app = express();
 const PORT = process.env.PORT || 4000;
 
-///// DB connection 
+///// DB connection
 
 mongoose.connect(process.env.DB_URI);
 const db = mongoose.connection;
 db.on('error', (error) => console.log(error));
 db.once('open', () => console.log("Connection ready"));
 
-// midleware
+// Middleware
 
 app.use(express.urlencoded({extended: false}));
 app.use(express.json());
