@@ -91,7 +91,7 @@ router.get('/delete/:id', async (req, res) => {
 
         if (component != null && component.image != '') {
             try {
-                fs.unlinkSync('./upload/' + resourceLimits.image)
+                fs.unlinkSync('./upload/' + component.product_photo)
             }
             catch(error) {
                 console.log(error);
