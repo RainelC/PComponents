@@ -23,8 +23,8 @@
         <td><%=item.available%></td>
         <td><%=item.price%></td>
         <td>
-          <i class="bx bx-edit fs-4"></i>
-          <i class="bx bxs-trash fs-4"></i>
+          <a href="/edit/<%= item.id %>"><i class="bx bx-edit fs-4"></i></a>
+          <a href="/delete/<%= item.id %>"><i class="bx bx-trash  fs-4"></i></a>
         </td>
       </tr>
       <% }); %>
