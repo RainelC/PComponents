@@ -34,6 +34,8 @@ app.use((req, res, next) => {
     next();
 })
 
+app.use(express.static('upload'));
+
 /// View Engine
 app.set("view engine", "ejs");
 app.use("", router);
