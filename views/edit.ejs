@@ -4,7 +4,7 @@
   <div class="card">
     <div class="card-body">
       <h3 class="card-title text-center my-2">Editar un producto</h3>
-      <form class="row" id="add-form" action="/update/<%= user._id %>" method="post" enctype="multipart/form-data">
+      <form class="row" id="add-form" action="/update/<%= data._id %>" method="post" enctype="multipart/form-data">
         <div class="mb-3 col-2">
           <label for="InputCode" class="form-label">Código</label>
           <input type="text" name="code" class="form-control" id="InputCode" value="<%= data.product_code %>" />
@@ -24,7 +24,7 @@
         <div class="mb-3 col-auto">
           <label for="InputPhoto" class="form-label">Foto del producto</label>
           <input type="file" name="photo" class="form-control" id="InputPhoto" value="<%= data.product_photo %>"/>
-          <img src="/<%= data.image %>" width="100" class="img-thumbnail mt-1">
+          <img src="/<%= data.product_photo %>" width="100" class="img-thumbnail mt-1">
         </div>
         <div class="mb-3 col-12">
           <label for="InputDescription" class="form-label">Descripción</label>
@@ -34,8 +34,7 @@
             name="description"
             class="form-control"
             id="InputDescription"
-            value="<%= data.description %>"
-          ></textarea>
+          ><%= data.description %></textarea>
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
       </form>

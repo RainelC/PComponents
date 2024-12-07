@@ -4,7 +4,7 @@ const model = require('../models/pcParts');
 const multer = require('multer');
 const path = require('path');
 
-const { availableMemory } = require('process');
+const { availableMemory, title } = require('process');
 const { userInfo } = require('os');
 const { error } = require('console');
 
@@ -57,7 +57,27 @@ router.post('/add', upload, (req, res) => {
 
 // Edit user
 
+router.get('/edit/:id', async (req, res) =>{
+    const id = req.params.id;
 
+    try{
+        const component = await model.findById(id);
+
+        if(component == null){
+            res.redirect('/');
+        }
+        else{
+            res.render('edit', {
+                title: "Edit Component",
+                data: component
+            })
+        }
+    }
+    catch(error) {
+        res.status(500).send();
+    }
+
+})
 
 
 
